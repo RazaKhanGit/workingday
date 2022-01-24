@@ -1,0 +1,38 @@
+<title>Working Days</title>
+    <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    {% if errmsg is not none %}
+        <p id="textbox"> **{{ errmsg }}** </p>
+    {% endif %}
+    <p id="textbox">The working days are:
+    {% for day in working %}
+        {{ day }},
+        
+    {% endfor %}
+    </p>
+<style>
+    html {
+        background:#c1bdba;
+        font-family: sans-serif;
+        font-size: 15px;
+    }
+    form {
+        position: relative;
+        width: 40%;
+        left: 30%;
+        background-color: rgb(107, 107, 197);
+        padding: 1%;
+    }
+    button {
+        position: relative;
+        background: royalblue;
+        left: 45%;
+        font-family: 'Helvetica', 'sans-serif';
+    }
+    #textbox {
+        text-align: center;
+    }
+</style>
